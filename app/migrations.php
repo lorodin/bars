@@ -9,7 +9,7 @@ return [
         'execution_time_column_name' => 'execution_time',
     ],
     'migrations_paths' => [
-        'Bars\Migrations' => __DIR__ . '/lib/Bars/Migrations'
+        'App\Migrations' => __DIR__ . '/src/Migrations'
     ],
     'all_or_nothing' => true,
     'transactional' => true,

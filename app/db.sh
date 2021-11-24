@@ -6,7 +6,11 @@ case $1 in
     ;;
   "create_migration")
     docker-compose run php composer run-script create:migration
-    chmod ugo+rw -R ./lib/Bars/Migrations/*
+    chmod ugo+rw -R ./src/Migrations/*
+    ;;
+  "diff")
+    docker-compose run php composer run-script db:diff
+    chmod ugo+rw -R ./src/Migrations/*
     ;;
   "migrate")
     docker-compose run php composer run-script db:migrate

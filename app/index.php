@@ -1,9 +1,9 @@
 <?php
 
+use App\App;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
-$connection = new \App\Connection('bars', 'bars', 'password');
+$app = new App();
 
-$conn = $connection->connect();
-
-echo $_ENV['DB_HOST'];
+echo $app->index() . '<br />';
