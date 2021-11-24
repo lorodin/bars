@@ -2,7 +2,7 @@
     "name": "r2d2/app",
     "autoload": {
         "psr-4": {
-            "R2d2\\App\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
@@ -11,5 +11,14 @@
             "email": "iliy.kulichenko@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "doctrine/orm": "2.6.6",
+        "doctrine/migrations": "^3.3"
+    },
+    "scripts": {
+        "db:migrate": "./vendor/bin/doctrine-migrations migrate",
+        "db:status": "./vendor/bin/doctrine-migrations status",
+        "db:rollback": "./vendor/bin/doctrine-migrations migrate prev",
+        "create:migration": "./vendor/bin/doctrine-migrations generate"
+    }
 }
