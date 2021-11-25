@@ -3,7 +3,7 @@
 return [
     'router' => [
         'routes' => [
-            'home' => [
+            'api' => [
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => [
                     'route'    => '/api',

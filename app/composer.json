@@ -4,7 +4,9 @@
         "psr-4": {
             "App\\": "src/",
             "Api\\": "src/module/Api/",
-            "Api\\Controller": "src/module/Api/src/Api/Controller"
+            "Api\\Controller": "src/module/Api/src/Api/Controller",
+            "Application\\": "src/module/Application",
+            "Application\\Controller": "src/module/Application/src/Application/Controller"
         }
     },
     "authors": [
