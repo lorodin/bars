@@ -2,7 +2,9 @@
     "name": "r2d2/app",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Api\\": "src/module/Api/",
+            "Api\\Controller": "src/module/Api/src/Api/Controller"
         }
     },
     "authors": [
@@ -14,7 +16,17 @@
     "require": {
         "doctrine/orm": "2.6.6",
         "doctrine/migrations": "^3.3",
-        "doctrine/doctrine-migrations-bundle": "^3.2"
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "zendframework/zend-mvc": "~2.7.15",
+        "zendframework/zend-modulemanager": "~2.8.4",
+        "zendframework/zend-navigation": "2.9.1",
+        "zendframework/zend-servicemanager": "2.7.11",
+        "zendframework/zend-cache": "2.9.0",
+        "zendframework/zend-log": "2.12.0",
+        "zendframework/zend-di": "2.6.1",
+        "zendframework/zend-view": "2.11.4",
+        "zendframework/zend-serializer": "2.9.1",
+        "zendframework/zend-i18n": "2.10.1"
     },
     "scripts": {
         "db:migrate": "./vendor/bin/doctrine-migrations migrate",
