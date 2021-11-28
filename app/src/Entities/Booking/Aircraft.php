@@ -23,6 +23,10 @@ class Aircraft
      */
     protected string $model;
 
+    /**
+     * @ORM\Column (name = "range", type = "integer", columnDefinition="integer not null check(range > 0)")
+     * @var int
+     */
     protected int $range;
 
     public function getAircraftCode(): ?string

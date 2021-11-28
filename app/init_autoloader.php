@@ -1,5 +1,7 @@
 <?php
 
+use Doctrine\DBAL\Types\Type;
+
 if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
 }
@@ -25,6 +27,8 @@ if ($zf2Path) {
         ));
     }
 }
+
+Type::addType('point', 'App\Entities\Booking\Types\Point');
 
 if (!class_exists('Zend\Loader\AutoloaderFactory')) {
     throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');

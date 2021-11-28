@@ -10,17 +10,23 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211128105054 extends AbstractMigration
+final class Version20211128124101 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Create aircrafts table';
+        return 'Creating table aircrafts';
     }
 
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE aircrafts (aircraft_code VARCHAR(3) NOT NULL, model TEXT NOT NULL, PRIMARY KEY(aircraft_code))');
+        $this->addSql(
+            "CREATE TABLE aircrafts (
+                    aircraft_code VARCHAR(3) NOT NULL,
+                    model TEXT NOT NULL,
+                    range integer not null check(range > 0),
+                    PRIMARY KEY(aircraft_code)
+                )");
     }
 
     public function down(Schema $schema): void

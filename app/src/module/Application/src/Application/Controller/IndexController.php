@@ -3,6 +3,7 @@
 namespace Application\Controller;
 
 use App\Entities\Booking\Aircraft;
+use App\Entities\Booking\Airport;
 use Doctrine\ORM\EntityManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -19,7 +20,7 @@ class IndexController extends AbstractActionController
     public function indexAction(): ViewModel
     {
         $entities = $this->entityManager
-            ->getRepository(Aircraft::class)
+            ->getRepository(Airport::class)
             ->findAll();
 
         print_r($entities);

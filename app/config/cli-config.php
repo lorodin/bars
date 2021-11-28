@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use Doctrine\DBAL\Types\Type;
 use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Doctrine\Migrations\Configuration\Migration\PhpFile;
 use Doctrine\Migrations\DependencyFactory;
@@ -14,6 +15,8 @@ $paths = [__DIR__ . "/../src/Entities/Booking"];
 $isDevMode = true;
 
 $ORMConfig = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+
+Type::addType('point', 'App\Entities\Booking\Types\Point');
 
 $dbConfig = require __DIR__ . "/db.php";
 
