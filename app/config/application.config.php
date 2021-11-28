@@ -2,8 +2,12 @@
 
 return array(
     'modules' => array(
+
+        'ZendDeveloperTools',
+        'DoctrineModule',
+        'DoctrineORMModule',
         'Application',
-        'Api'
+        'Api',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
@@ -14,4 +18,12 @@ return array(
             'config/autoload/{,*.}{global,local}.php',
         ),
     ),
+//    'di' => [
+//        'instance' => array(
+//            'preference' => array(
+//                'Zend\EventManager\EventManagerInterface' => 'EventManager',
+//                'Zend\ServiceManager\ServiceLocatorInterface' => 'ServiceManager',
+//            ),
+//        ),
+//    ]
 );

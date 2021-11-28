@@ -32,8 +32,12 @@ return [
         ],
     ],
     'controllers' => [
-        'invokables' => [
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+        'factories' => [
+            'Application\Controller\Index' => function ($container) {
+                return new \Application\Controller\IndexController(
+                    $container->get('Doctrine\ORM\EntityManager')
+                );
+            }
         ],
     ],
 ];

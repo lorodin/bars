@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
 $config = new PhpFile("migrations.php");
-$paths = [__DIR__ . "/../src/Models"];
+$paths = [__DIR__ . "/../src/Entities/Booking"];
 
 $isDevMode = true;
 
