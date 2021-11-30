@@ -55,4 +55,19 @@ class Seat
     {
         $this->seat_no = $seat_no;
     }
+
+    public function getSeatNo(): ?string
+    {
+        return $this->seat_no;
+    }
+
+    public function getFaveConditions(): ?string
+    {
+        return $this->fave_conditions;
+    }
+
+    public function setFaveConditions(string $fave_conditions)
+    {
+        $this->fave_conditions = $fave_conditions;
+    }
 }

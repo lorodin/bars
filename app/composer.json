@@ -6,7 +6,8 @@
             "Api\\": "src/module/Api/",
             "Api\\Controller\\": "src/module/Api/src/Api/Controller",
             "Application\\": "src/module/Application",
-            "Application\\Controller\\": "src/module/Application/src/Application/Controller"
+            "Application\\Controller\\": "src/module/Application/src/Application/Controller",
+            "Application\\Service\\": "src/module/Application/src/Application/Service"
         }
     },
     "authors": [
@@ -17,13 +18,13 @@
     ],
     "require": {
         "doctrine/common": "^2.13.3",
-        "doctrine/doctrine-orm-module": "^1.0.0",
+        "doctrine/doctrine-orm-module": "^1.1.8",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "zendframework/zend-mvc": "~2.7.15",
         "zendframework/zend-serializer": "~2.9.1",
         "zendframework/zend-log": "~2.12.0",
         "zendframework/zend-i18n": "~2.10.1",
-        "zendframework/zend-di": "~2.6.1"
+        "php-di/php-di": "^6.3"
     },
     "require-dev": {
         "zendframework/zend-developer-tools": "dev-master",
@@ -34,6 +35,7 @@
         "db:status": "./vendor/bin/doctrine-migrations status",
         "db:rollback": "./vendor/bin/doctrine-migrations migrate prev",
         "db:diff": "./vendor/bin/doctrine-migrations diff",
-        "create:migration": "./vendor/bin/doctrine-migrations generate"
+        "create:migration": "./vendor/bin/doctrine-migrations generate",
+        "cache:clear": "./vendor/bin/doctrine orm:clear-cache:metadata"
     }
 }

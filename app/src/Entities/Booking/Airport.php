@@ -30,7 +30,7 @@ class Airport
     protected string $city;
 
     /**
-     * @ORM\Column (name="coordinates", type="point")
+     * @ORM\Column (name="coordinates", type="point", columnDefinition="point not null")
      * @var array [
      *               "longitude" => float,
      *               "latitude"  => float

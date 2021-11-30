@@ -6,5 +6,5 @@ return [
     'password' => $_ENV['DB_PASSWORD'],
     'host' => $_ENV["DB_HOST"],
     'driver' => 'pdo_pgsql',
-    'port' => 5432
+    'port' => 5432,
 ];

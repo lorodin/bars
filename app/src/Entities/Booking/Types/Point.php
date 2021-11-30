@@ -11,7 +11,7 @@ class Point extends Type
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return "point";
+        return self::TYPE;
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): array

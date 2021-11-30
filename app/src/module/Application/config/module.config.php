@@ -1,5 +1,8 @@
 <?php
 
+use Application\Service\Factory\ExampleFactory;
+use Application\Service\IService;
+
 return [
     'router' => [
         'routes' => [
@@ -31,13 +34,16 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    'service_manager' => [
+        "factories" => [
+            IService::class => ExampleFactory::class
+        ]
+    ],
     'controllers' => [
         'factories' => [
             'Application\Controller\Index' => function ($container) {
-                return new \Application\Controller\IndexController(
-                    $container->get('Doctrine\ORM\EntityManager')
-                );
+                return new \Application\Controller\IndexController($container->get(IService::class));
             }
-        ],
-    ],
+        ]
+    ]
 ];

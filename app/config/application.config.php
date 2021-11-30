@@ -2,10 +2,8 @@
 
 return array(
     'modules' => array(
-
         'ZendDeveloperTools',
         'DoctrineModule',
-        'DoctrineORMModule',
         'Application',
         'Api',
     ),
@@ -18,12 +16,9 @@ return array(
             'config/autoload/{,*.}{global,local}.php',
         ),
     ),
-//    'di' => [
-//        'instance' => array(
-//            'preference' => array(
-//                'Zend\EventManager\EventManagerInterface' => 'EventManager',
-//                'Zend\ServiceManager\ServiceLocatorInterface' => 'ServiceManager',
-//            ),
-//        ),
-//    ]
+    'service_manager' => [
+        'factories' => [
+            'Application\DI' => 'Application\Controller\Factories\DIAbstractFactory'
+        ]
+    ]
 );

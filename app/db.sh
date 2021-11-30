@@ -18,6 +18,9 @@ case $1 in
   "rollback")
     docker-compose run php composer run-script db:rollback
     ;;
+  "cache:clear")
+    docker-compose run php composer run-script cache:clear
+    ;;
   *)
     echo "Unknown command"
     ;;

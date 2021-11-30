@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         libxpm-dev \
         libvpx-dev \
         libzip-dev \
+        unzip \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && docker-php-ext-install -j$(nproc) gd \
