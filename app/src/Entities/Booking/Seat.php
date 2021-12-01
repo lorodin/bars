@@ -6,20 +6,32 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table (name="seats")
+ * @ORM\Table (
+ *     name="seats",
+ *     schema="bookings"
+ * )
  */
 class Seat
 {
     /**
      * @ORM\Id
-     * @ORM\Column (name="aircraft_code", type="string", length=3)
+     * @ORM\Column (
+     *     name="aircraft_code",
+     *     type="string",
+     *     length=3,
+     *     options={"fixed" = true}
+     * )
      * @var string
      */
     protected string $aircraft_code;
 
     /**
      * @ORM\Id
-     * @ORM\Column (name="seat_no", type="string", length=4)
+     * @ORM\Column (
+     *     name="seat_no",
+     *     type="string",
+     *     length=4
+     * )
      * @var string
      */
     protected string $seat_no;

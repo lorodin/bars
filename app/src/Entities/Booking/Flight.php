@@ -6,7 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="flights")
+ * @ORM\Table (
+ *     name="flights",
+ *     schema="bookings",
+ *     uniqueConstraints={
+ *          @ORM\UniqueConstraint (
+ *              name="flight_no_unique",
+ *              columns={"flight_no", "scheduled_departure"}
+ *          )
+ *     }
+ * )
  */
 class Flight
 {
@@ -23,7 +32,8 @@ class Flight
      * @ORM\Column (
      *     name="flight_no",
      *     type="string",
-     *     length=6
+     *     length=6,
+     *     options={"fixed" = true}
      * )
      *
      * @var string
@@ -55,7 +65,8 @@ class Flight
      * @ORM\Column (
      *     name = "departure_airport",
      *     type="string",
-     *     length=3
+     *     length=3,
+     *     options={"fixed" = true}
      * )
      *
      * @var string
@@ -66,7 +77,8 @@ class Flight
      * @ORM\Column (
      *     name="arrival_airport",
      *     type="string",
-     *     length=3
+     *     length=3,
+     *     options={"fixed": true}
      * )
      *
      * @var string
@@ -89,7 +101,8 @@ class Flight
      * @ORM\Column (
      *     name="aircraft_code",
      *     type="string",
-     *     length=3
+     *     length=3,
+     *     options={"fixed" = true}
      * )
      *
      * @var string

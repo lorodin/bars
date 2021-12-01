@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table (
+ *     schema="bookings",
  *     name="boarding_passes",
  *     uniqueConstraints={
  *          @ORM\UniqueConstraint (
@@ -59,7 +60,8 @@ class BoardingPass
      * @ORM\Column (
      *     name="seat_no",
      *     type="string",
-     *     length=4
+     *     length=4,
+     *     options={"fixed" = true}
      * )
      *
      * @var string

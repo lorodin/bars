@@ -6,7 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table (name="tickets")
+ * @ORM\Table (
+ *     name="tickets",
+ *     schema="bookings"
+ * )
  */
 class Ticket
 {
@@ -15,7 +18,8 @@ class Ticket
      * @ORM\Column (
      *     name="ticket_no",
      *     type="string",
-     *     length=13
+     *     length=13,
+     *     options={"fixed" = true}
      * )
      *
      * @var string
@@ -26,7 +30,8 @@ class Ticket
      * @ORM\Column (
      *     name="book_ref",
      *     type="string",
-     *     length=6
+     *     length=6,
+     *     options={"fixed" = true}
      * )
      *
      * @var string

@@ -7,7 +7,8 @@
             "Api\\Controller\\": "src/module/Api/src/Api/Controller",
             "Application\\": "src/module/Application",
             "Application\\Controller\\": "src/module/Application/src/Application/Controller",
-            "Application\\Service\\": "src/module/Application/src/Application/Service"
+            "Application\\Service\\": "src/module/Application/src/Application/Service",
+            "Migrations\\Traits\\": "migrations/traits"
         }
     },
     "authors": [

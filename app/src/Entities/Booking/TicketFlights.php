@@ -6,7 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table (name="ticket_flights")
+ * @ORM\Table (
+ *     name="ticket_flights",
+ *     schema="bookings"
+ * )
  */
 class TicketFlights
 {
@@ -15,7 +18,8 @@ class TicketFlights
      * @ORM\Column (
      *     name="ticket_no",
      *     type="string",
-     *     length=13
+     *     length=13,
+     *     options={"fixed" = true}
      * )
      *
      * @var string
@@ -37,7 +41,7 @@ class TicketFlights
      * @ORM\Column (
      *     name="fare_conditions",
      *     type="string",
-     *     length=20,
+     *     length=10,
      *     columnDefinition="varchar(10) not null check(fare_conditions in ('Economy', 'Comfort', 'Business'))"
      * )
      *
@@ -49,7 +53,8 @@ class TicketFlights
      * @ORM\Column (
      *     name="amount",
      *     type="decimal",
-     *     columnDefinition="numeric(10, 2) not null check(amount > 0)"
+     *     precision=10,
+     *     scale=2
      * )
      *
      * @var float

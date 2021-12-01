@@ -1,6 +1,16 @@
 #!/bin/bash
 
 case $1 in
+  "help")
+    echo "List commands"
+    echo "  help             - print this message"
+    echo "  status           - print orm status"
+    echo "  create_migration - create new empty migration"
+    echo "  diff             - create migration from entities"
+    echo "  migrate          - apply all migrations"
+    echo "  rollback         - rollback last migration"
+    echo "  cache:clear      - clear orm metadata cache"
+    ;;
   "status")
     docker-compose run php composer run-script db:status
     ;;

@@ -6,25 +6,41 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="airports")
+ * @ORM\Table(
+ *     name="airports_data",
+ *     schema="bookings"
+ * )
  */
 class Airport
 {
     /**
      * @ORM\Id
-     * @ORM\Column (name = "airport_code", type="string", length=3)
+     * @ORM\Column (
+     *     name = "airport_code",
+     *     type="string",
+     *     length=3,
+     *     options={"fixed" = true}
+     * )
      * @var string
      */
     protected string $airport_code;
 
     /**
-     * @ORM\Column (name = "airport_name", type="text")
+     * @ORM\Column (
+     *     name = "airport_name",
+     *     type="json",
+     *     columnDefinition="jsonb NOT NULL"
+     * )
      * @var string
      */
     protected string $airport_name;
 
     /**
-     * @ORM\Column (name = "city", type="text")
+     * @ORM\Column (
+     *     name = "city",
+     *     type="json",
+     *     columnDefinition="jsonb NOT NULL"
+     * )
      * @var string
      */
     protected string $city;
@@ -39,7 +55,10 @@ class Airport
     protected array $coordinates;
 
     /**
-     * @ORM\Column (name="timezone", type="smallint", columnDefinition="smallint not null check(timezone >= -12 and timezone <= 12)")
+     * @ORM\Column (
+     *     name="timezone",
+     *     type="text"
+     * )
      * @var int
      */
     protected int $timezone;
