@@ -8,7 +8,7 @@
             "Application\\": "src/module/Application",
             "Application\\Controller\\": "src/module/Application/src/Application/Controller",
             "Application\\Service\\": "src/module/Application/src/Application/Service",
-            "Migrations\\Traits\\": "migrations/traits"
+            "Migrations\\Abstracts\\": "migrations/abstracts"
         }
     },
     "authors": [

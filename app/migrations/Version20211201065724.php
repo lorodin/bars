@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace App\Migrations;
 
+include_once __DIR__ . "/abstracts/DumpTypesDefinitions.php";
+include_once __DIR__ . "/abstracts/AbstractMigrationWithDump.php";
+
 use Doctrine\DBAL\Schema\Schema;
-use Doctrine\Migrations\AbstractMigration;
+use Migrations\Abstracts\AbstractMigrationWithDump;
+use Migrations\Abstracts\DumpTypesDefinitions;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211201065724 extends AbstractMigration
+final class Version20211201065724 extends AbstractMigrationWithDump
 {
     public function getDescription(): string
     {
@@ -53,5 +57,25 @@ final class Version20211201065724 extends AbstractMigration
     public function down(Schema $schema): void
     {
         $this->addSql('DROP TABLE bookings.ticket_flights');
+    }
+
+    protected function getColumnsFormat(): array
+    {
+        return [
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::NUMBER_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::NUMBER_FORMAT
+        ];
+    }
+
+    protected function getTableName(): string
+    {
+        return 'bookings.ticket_flights';
+    }
+
+    protected function getDumpFilePath(): string
+    {
+        return __DIR__ . '/dumps/ticket_flights.dump';
     }
 }

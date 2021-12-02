@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace App\Migrations;
 
+include_once __DIR__ . "/abstracts/DumpTypesDefinitions.php";
+include_once __DIR__ . "/abstracts/AbstractMigrationWithDump.php";
+
 use Doctrine\DBAL\Schema\Schema;
-use Doctrine\Migrations\AbstractMigration;
+use Migrations\Abstracts\AbstractMigrationWithDump;
+use Migrations\Abstracts\DumpTypesDefinitions;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211201054749 extends AbstractMigration
+final class Version20211201054749 extends AbstractMigrationWithDump
 {
     public function getDescription(): string
     {
@@ -23,14 +27,14 @@ final class Version20211201054749 extends AbstractMigration
         $this->addSql(
             'CREATE TABLE bookings.flights (
                             flight_id SERIAL NOT NULL,
-                            departure_airport CHAR(3) NOT NULL,
-                            arrival_airport CHAR(3) NOT NULL,
-                            aircraft_code CHAR(3) NOT NULL,
                             flight_no CHAR(6) NOT NULL,
                             scheduled_departure TIMESTAMP(0) WITH TIME ZONE NOT NULL,
                             scheduled_arrival timestamptz not null check(scheduled_arrival > scheduled_departure),
+                            departure_airport CHAR(3) NOT NULL,
+                            arrival_airport CHAR(3) NOT NULL,
                             status varchar(20) not null 
                                 check(status in (\'On Time\', \'Delayed\', \'Departed\', \'Arrived\', \'Scheduled\', \'Cancelled\')),
+                            aircraft_code CHAR(3) NOT NULL,
                             actual_departure TIMESTAMP(0) WITH TIME ZONE DEFAULT NULL,
                             actual_arrival timestamptz 
                                 check (actual_arrival is null
@@ -77,5 +81,31 @@ final class Version20211201054749 extends AbstractMigration
     public function down(Schema $schema): void
     {
         $this->addSql('DROP TABLE bookings.flights');
+    }
+
+    protected function getColumnsFormat(): array
+    {
+        return [
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::DATETIME_FORMAT,
+            DumpTypesDefinitions::DATETIME_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::STRING_FORMAT,
+            DumpTypesDefinitions::DATETIME_FORMAT | DumpTypesDefinitions::NULLABLE,
+            DumpTypesDefinitions::DATETIME_FORMAT | DumpTypesDefinitions::NULLABLE
+        ];
+    }
+
+    protected function getTableName(): string
+    {
+        return 'bookings.flights';
+    }
+
+    protected function getDumpFilePath(): string
+    {
+        return __DIR__ . '/dumps/flights.dump';
     }
 }
